@@ -20,46 +20,29 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Pretendard Variable','Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;letter-spacing:-.011em}
-/* 한글이 단어 중간에서 끊기지 않고 띄어쓰기 단위로 줄바꿈되게 함 */
-body{word-break:keep-all;overflow-wrap:break-word}
-/* 모바일에서 의도치 않은 가로 스크롤 방지 */
 html,body{max-width:100%;overflow-x:hidden}
+body{font-family:'Pretendard Variable','Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;letter-spacing:-.011em;word-break:keep-all;overflow-wrap:break-word}
 img,table,canvas{max-width:100%}
-/* 어려운 용어 설명(마우스 올리면 뜨는 말풍선) */
-.term{position:relative;border-bottom:1px dotted var(--pink);cursor:help;font-weight:600;color:var(--pink-deep);white-space:nowrap}
-.term::after{
-  content:attr(data-tip);
-  position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(6px);
-  background:var(--ink);color:#fff;font-size:.78rem;font-weight:400;line-height:1.5;
-  white-space:normal;width:max-content;max-width:260px;text-align:left;
-  padding:10px 12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.22);
-  opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;z-index:80;pointer-events:none;
-  letter-spacing:0;
-}
-.term::before{
-  content:"";position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(6px);
-  border:6px solid transparent;border-top-color:var(--ink);margin-bottom:-6px;
-  opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;z-index:81;pointer-events:none;
-}
-.term:hover::after,.term:focus::after,.term:active::after,
-.term:hover::before,.term:focus::before,.term:active::before{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 h1,h2,h3{font-family:'Pretendard Variable','Pretendard',sans-serif;line-height:1.16;font-weight:800;letter-spacing:-.035em}
 .serif{font-family:'Pretendard Variable','Pretendard',sans-serif;font-weight:800;letter-spacing:-.035em}
-img{max-width:100%;display:block}
+img{display:block}
 a{color:var(--pink-deep);text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .eyebrow{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--pink);margin-bottom:14px}
 section{padding:84px 0;border-bottom:1px solid var(--line)}
 section.alt{background:linear-gradient(180deg,var(--pink-tint),#fff)}
 .lead{font-size:1.08rem;color:var(--muted);max-width:720px}
-.grid{display:grid;gap:24px}
+
+/* 어려운 용어 설명 말풍선 */
+.term{position:relative;border-bottom:1px dotted var(--pink);cursor:help;font-weight:600;color:var(--pink-deep);white-space:nowrap}
+.term::after{content:attr(data-tip);position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(6px);background:var(--ink);color:#fff;font-size:.78rem;font-weight:400;line-height:1.5;white-space:normal;width:max-content;max-width:260px;text-align:left;padding:10px 12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.22);opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;z-index:80;pointer-events:none;letter-spacing:0}
+.term::before{content:"";position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(6px);border:6px solid transparent;border-top-color:var(--ink);margin-bottom:-6px;opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;z-index:81;pointer-events:none}
+.term:hover::after,.term:focus::after,.term:active::after,.term:hover::before,.term:focus::before,.term:active::before{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 
 header{position:sticky;top:0;z-index:50;background:rgba(255,251,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{height:34px;width:auto;display:block}
-@media(max-width:560px){.brand img{height:28px}}
 .navlinks{display:flex;gap:22px;font-size:.86rem;font-weight:500}
 .navlinks a{color:var(--ink);opacity:.78}
 .navlinks a:hover{opacity:1;color:var(--pink-deep)}
@@ -81,7 +64,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,251,252,.92);backdro
 .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
 .hero-stats{position:relative;background:var(--pink-deep);color:#fff}
 .hero-stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:30px;padding-bottom:30px}
-.hstat .n{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2rem;font-weight:700}
+.hstat .n{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2rem;font-weight:800}
 .hstat .l{font-size:.78rem;opacity:.85;font-weight:300}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -96,7 +79,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,251,252,.92);backdro
 
 .statband{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:10px}
 .statbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;box-shadow:var(--shadow)}
-.statbox .n{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2rem;color:var(--pink-deep);font-weight:700}
+.statbox .n{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2rem;color:var(--pink-deep);font-weight:800}
 .statbox .l{font-size:.8rem;color:var(--muted);margin-top:6px}
 .statbox .src{font-size:.66rem;color:#a99aa3;margin-top:8px}
 
@@ -107,10 +90,24 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,251,252,.92);backdro
 .chart-canvas-wrap{position:relative;height:300px}
 
 .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-.gallery figure{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+.gallery figure{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;cursor:zoom-in}
 .gallery img{width:100%;height:100%;object-fit:cover}
 .gallery figcaption{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(0deg,rgba(31,26,29,.78),transparent);color:#fff;font-size:.8rem;padding:18px 14px 12px;font-weight:500}
+.gallery figure::after{content:"\2922";position:absolute;top:10px;right:12px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:rgba(31,26,29,.55);color:#fff;border-radius:8px;font-size:1rem;opacity:0;transition:opacity .18s}
+.gallery figure:hover::after{opacity:1}
+.gallery-hint{margin-top:16px;font-size:.84rem;color:var(--muted);text-align:center}
 .g-wide{grid-column:span 8}.g-tall{grid-column:span 4}.g-half{grid-column:span 6}.g-third{grid-column:span 4}
+
+/* 라이트박스(이미지 크게 보기) */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(20,12,16,.92);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:96vw;max-height:88vh;width:auto;height:auto;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5);cursor:default}
+.lb .lb-cap{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:#fff;font-size:.9rem;padding:0 24px}
+.lb .lb-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:0;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;cursor:pointer;line-height:1}
+.lb .lb-close:hover{background:rgba(255,255,255,.28)}
+.lb .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border:0;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:1.6rem;cursor:pointer}
+.lb .lb-nav:hover{background:rgba(255,255,255,.28)}
+.lb .lb-prev{left:16px}.lb .lb-next{right:16px}
 
 .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
@@ -135,7 +132,6 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .split li{padding:12px 0 12px 30px;position:relative;border-bottom:1px solid var(--line);font-size:.95rem}
 .split li::before{content:"";position:absolute;left:0;top:18px;width:14px;height:14px;border-radius:4px;background:var(--pink);transform:rotate(45deg)}
 .split li b{color:var(--ink)}
-.figround{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
 
 .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .tstep{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 20px;box-shadow:var(--shadow);position:relative}
@@ -149,7 +145,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .callout p{opacity:.92;max-width:640px;margin:14px auto 0}
 .pricecards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:6px}
 .pc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;box-shadow:var(--shadow)}
-.pc .big{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2.3rem;font-weight:700;color:var(--pink-deep)}
+.pc .big{font-family:'Pretendard Variable','Pretendard',sans-serif;font-size:2.3rem;font-weight:800;color:var(--pink-deep)}
 .pc .lbl{font-size:.84rem;color:var(--muted);margin-top:6px}
 .note{font-size:.78rem;color:var(--muted);margin-top:18px;font-style:italic}
 
@@ -196,6 +192,8 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
   .chart-canvas-wrap{height:260px}
   .card{padding:22px}
   .product .pimg img{height:170px}
+  .lb .lb-nav{width:42px;height:42px;font-size:1.3rem}
+  .lb .lb-cap{font-size:.8rem}
   .term::after{max-width:74vw;font-size:.74rem}
 }
 /* 작은 스마트폰(iPhone SE/미니 ~360px) */
@@ -260,12 +258,12 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="sum_eyebrow">Executive Summary</div>
       <h2 data-i18n="sum_title">A proven retail model, a rising market, the right moment.</h2>
-      <p class="lead" data-i18n="sum_lead">K-Beauty is the fastest-growing beauty category in the world, and Kenya is East Africa's beauty powerhouse. SEOULIVA brings the two together in a warehouse-format store — high volume, accessible prices, authentic Korean formulations made for melanin-rich skin and a tropical climate.</p>
+      <p class="lead" data-i18n="sum_lead">K-Beauty is the fastest-growing beauty category in the world, and Kenya is East Africa's beauty powerhouse.</p>
     </div>
     <div class="cards">
-      <div class="card"><div class="ico">📈</div><h3 data-i18n="sum_c1_t">Market timing</h3><p data-i18n="sum_c1_b">Kenya's beauty market is set to grow toward $3.1B by 2029, while K-Beauty awareness in Nairobi is already proven by TikTok-driven demand and dedicated Korean-skincare retailers.</p></div>
-      <div class="card"><div class="ico">🏷️</div><h3 data-i18n="sum_c2_t">Price advantage</h3><p data-i18n="sum_c2_b">With OEM cost at ~20% of MSRP, SEOULIVA can supply products at ~30% of MSRP — leaving the buyer a wide margin while keeping shelf prices affordable.</p></div>
-      <div class="card"><div class="ico">🧪</div><h3 data-i18n="sum_c3_t">Made for the skin</h3><p data-i18n="sum_c3_b">Formulations target the real needs of Kenyan consumers: hyperpigmentation, sun protection without white cast, hydration and even tone — using globally trending K-Beauty actives.</p></div>
+      <div class="card"><div class="ico">📈</div><h3 data-i18n="sum_c1_t">Market timing</h3><p data-i18n="sum_c1_b">Kenya's beauty market is growing.</p></div>
+      <div class="card"><div class="ico">🏷️</div><h3 data-i18n="sum_c2_t">Price advantage</h3><p data-i18n="sum_c2_b">Supply at ~30% of MSRP.</p></div>
+      <div class="card"><div class="ico">🧪</div><h3 data-i18n="sum_c3_t">Made for the skin</h3><p data-i18n="sum_c3_b">Formulated for Kenyan consumers.</p></div>
     </div>
   </div>
 </section>
@@ -275,7 +273,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="mkt_eyebrow">The Market</div>
       <h2 data-i18n="mkt_title">Two curves moving in the same direction</h2>
-      <p class="lead" data-i18n="mkt_lead">Kenya's domestic beauty spending and Korea's global cosmetics export engine are both compounding. SEOULIVA sits exactly where they meet.</p>
+      <p class="lead" data-i18n="mkt_lead">Kenya's beauty spending and Korea's cosmetics exports are both growing.</p>
     </div>
     <div class="statband">
       <div class="statbox"><div class="n">$2.3B</div><div class="l" data-i18n="mkt_s1">Kenya beauty &amp; personal care, 2024</div><div class="src">Statista</div></div>
@@ -286,24 +284,24 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="chart-2" style="margin-top:32px">
       <div class="chartbox">
         <h3 data-i18n="ch1_t">Kenya beauty &amp; personal care market</h3>
-        <div class="cap" data-i18n="ch1_c">Revenue, USD billions · CAGR ≈ 6.4% (2024–2029). Source: Statista.</div>
+        <div class="cap" data-i18n="ch1_c">Revenue, USD billions. Source: Statista.</div>
         <div class="chart-canvas-wrap"><canvas id="chKenya"></canvas></div>
       </div>
       <div class="chartbox">
         <h3 data-i18n="ch2_t">Global K-Beauty market</h3>
-        <div class="cap" data-i18n="ch2_c">Market size, USD billions · CAGR ≈ 8.6% (2025–2034). Source: Future Market Insights.</div>
+        <div class="cap" data-i18n="ch2_c">Market size, USD billions. Source: Future Market Insights.</div>
         <div class="chart-canvas-wrap"><canvas id="chGlobal"></canvas></div>
       </div>
     </div>
     <div class="chart-2" style="margin-top:24px">
       <div class="chartbox">
         <h3 data-i18n="ch3_t">Korea cosmetics exports hit a record</h3>
-        <div class="cap" data-i18n="ch3_c">Annual exports, USD billions. 2025 = world's #2 exporter. Source: Korea Customs Service / Korea Times.</div>
+        <div class="cap" data-i18n="ch3_c">Annual exports, USD billions. Source: Korea Customs Service / Korea Times.</div>
         <div class="chart-canvas-wrap"><canvas id="chExport"></canvas></div>
       </div>
       <div class="chartbox">
         <h3 data-i18n="ch4_t">Where Kenya ranks for entry</h3>
-        <div class="cap" data-i18n="ch4_c">Brooks Global Africa screening score (max 25). Kenya ranks #1 of 12 markets.</div>
+        <div class="cap" data-i18n="ch4_c">Brooks Global Africa screening score (max 25).</div>
         <div class="chart-canvas-wrap"><canvas id="chRank"></canvas></div>
       </div>
     </div>
@@ -315,30 +313,30 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="why_eyebrow">Why Kenya, Why Now</div>
       <h2 data-i18n="why_title">Demand is already on the street</h2>
-      <p class="lead" data-i18n="why_lead">K-Beauty is no longer a niche import in Nairobi. Dedicated Korean-skincare retailers operate across multiple Nairobi malls, fuelled by TikTok — proof the consumer is ready for a structured, full-range warehouse store.</p>
+      <p class="lead" data-i18n="why_lead">K-Beauty is no longer a niche import in Nairobi.</p>
     </div>
     <div class="split">
       <div>
         <h3 class="serif" style="font-size:1.4rem;margin-bottom:6px" data-i18n="why_sub1">Growth drivers</h3>
         <ul>
-          <li data-i18n="why_d1"><b>Young population &amp; urbanisation</b> — a large under-25 majority and a growing urban middle class drive personal-care spending.</li>
-          <li data-i18n="why_d2"><b>Social-media pull</b> — K-Beauty's TikTok share of voice nearly doubled (18%→34%) in a year; Nairobi consumers follow the same trends.</li>
-          <li data-i18n="why_d3"><b>Natural &amp; functional preference</b> — Kenyan shoppers increasingly choose natural, ingredient-led skincare, a core K-Beauty strength.</li>
-          <li data-i18n="why_d4"><b>Channel gap</b> — supermarket beauty penetration is still low; wholesale, specialist and warehouse formats fit the market today.</li>
+          <li data-i18n="why_d1"><b>Young population &amp; urbanisation</b> — drives personal-care spending.</li>
+          <li data-i18n="why_d2"><b>Social-media pull</b> — K-Beauty's TikTok share nearly doubled (18%→34%) in a year.</li>
+          <li data-i18n="why_d3"><b>Natural &amp; functional preference</b> — a core K-Beauty strength.</li>
+          <li data-i18n="why_d4"><b>Channel gap</b> — wholesale &amp; warehouse formats fit the market today.</li>
         </ul>
       </div>
       <div>
         <h3 class="serif" style="font-size:1.4rem;margin-bottom:6px" data-i18n="why_sub2">Skin needs we formulate for</h3>
         <div class="chartbox">
-          <div class="cap" data-i18n="why_chart_c">Priority skin concerns among African consumers (illustrative index, based on dermatology &amp; survey literature).</div>
+          <div class="cap" data-i18n="why_chart_c">Priority skin concerns among African consumers (illustrative index).</div>
           <div class="chart-canvas-wrap" style="height:280px"><canvas id="chSkin"></canvas></div>
         </div>
       </div>
     </div>
     <div class="cards" style="margin-top:40px">
-      <div class="card"><div class="ico">☀️</div><h3 data-i18n="ing1_t">Sun care, no white cast</h3><p data-i18n="ing1_b">SPF50+ PA++++ sunscreen formulated to absorb cleanly on deep skin tones — the #1 cited frustration with global sunscreens in Africa.</p></div>
-      <div class="card"><div class="ico">✨</div><h3 data-i18n="ing2_t">Brightening &amp; even tone</h3><p data-i18n="ing2_b">Niacinamide, vitamin C, kojic &amp; glycolic acid target post-inflammatory hyperpigmentation — the most common concern on melanin-rich skin.</p></div>
-      <div class="card"><div class="ico">🌿</div><h3 data-i18n="ing3_t">Globally-trending actives</h3><p data-i18n="ing3_b">Cica (centella), heartleaf, snail mucin, ceramides, PDRN and hyaluronic acid — the same actives driving K-Beauty worldwide, formulated by Korean labs.</p></div>
+      <div class="card"><div class="ico">☀️</div><h3 data-i18n="ing1_t">Sun care, no white cast</h3><p data-i18n="ing1_b">SPF50+ sunscreen for deep skin tones.</p></div>
+      <div class="card"><div class="ico">✨</div><h3 data-i18n="ing2_t">Brightening &amp; even tone</h3><p data-i18n="ing2_b">Targets hyperpigmentation.</p></div>
+      <div class="card"><div class="ico">🌿</div><h3 data-i18n="ing3_t">Globally-trending actives</h3><p data-i18n="ing3_b">Cica, ceramides, hyaluronic acid and more.</p></div>
     </div>
   </div>
 </section>
@@ -348,7 +346,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="con_eyebrow">The Store Concept</div>
       <h2 data-i18n="con_title">A warehouse of Korean beauty</h2>
-      <p class="lead" data-i18n="con_lead">Bold, bright and built for volume. SEOULIVA blends an experience-led retail front with crate-merchandised wholesale deals — modelled on the proven Korean warehouse-beauty retail format.</p>
+      <p class="lead" data-i18n="con_lead">Bold, bright and built for volume — modelled on the proven Korean warehouse-beauty retail format.</p>
     </div>
     <div class="gallery">
       <figure class="g-wide" style="aspect-ratio:16/9"><img src="assets/store/exterior.png" alt="Store exterior"><figcaption data-i18n="cap_ext">Statement storefront — instantly recognisable on a high street or mall</figcaption></figure>
@@ -359,10 +357,11 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
       <figure class="g-third" style="aspect-ratio:1/1"><img src="assets/store/uniform.png" alt="Staff uniform"><figcaption data-i18n="cap_uni">Branded staff uniform</figcaption></figure>
       <figure class="g-third" style="aspect-ratio:1/1"><img src="assets/store/apron.png" alt="Staff apron"><figcaption data-i18n="cap_apr">Branded service apron</figcaption></figure>
     </div>
+    <p class="gallery-hint" data-i18n="con_hint">이미지를 클릭하면 원본 크기로 크게 볼 수 있습니다.</p>
     <div class="cards" style="margin-top:36px">
-      <div class="card"><div class="ico">🛒</div><h3 data-i18n="con_c1_t">Hybrid model</h3><p data-i18n="con_c1_b">A retail experience floor for walk-in consumers, plus a B2B wholesale hub for salons and resellers — the structure best fitted to Kenyan distribution.</p></div>
-      <div class="card"><div class="ico">📍</div><h3 data-i18n="con_c2_t">Nairobi-first</h3><p data-i18n="con_c2_b">Launch in a high-footfall Nairobi location, then expand to Mombasa and regional hubs and use Kenya as an East-Africa re-export base.</p></div>
-      <div class="card"><div class="ico">🤝</div><h3 data-i18n="con_c3_t">Turnkey partnership</h3><p data-i18n="con_c3_b">Brooks Global supplies brand, fit-out kit, OEM products and operating playbook; the Kenyan partner runs the store with on-the-ground knowledge.</p></div>
+      <div class="card"><div class="ico">🛒</div><h3 data-i18n="con_c1_t">Hybrid model</h3><p data-i18n="con_c1_b">Retail experience floor plus a B2B wholesale hub.</p></div>
+      <div class="card"><div class="ico">📍</div><h3 data-i18n="con_c2_t">Nairobi-first</h3><p data-i18n="con_c2_b">Launch in Nairobi, then expand across East Africa.</p></div>
+      <div class="card"><div class="ico">🤝</div><h3 data-i18n="con_c3_t">Turnkey partnership</h3><p data-i18n="con_c3_b">Brooks Global supplies brand, products and playbook.</p></div>
     </div>
   </div>
 </section>
@@ -372,7 +371,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="prd_eyebrow">The Product Line</div>
       <h2 data-i18n="prd_title">A focused launch range</h2>
-      <p class="lead" data-i18n="prd_lead">Six hero SKUs cover the everyday K-Beauty routine. Each is an OEM product from Korean manufacturers, customisable in formula, fragrance and pack — and expandable as the store grows. MSRP shown is an indicative shelf price.</p>
+      <p class="lead" data-i18n="prd_lead">Six hero SKUs cover the everyday K-Beauty routine. MSRP shown is an indicative shelf price.</p>
     </div>
     <div class="products">
       <div class="product"><div class="pimg"><img src="assets/product/serum.png" alt="Hydra Glow Serum"></div><div class="pbody"><div class="ptag">Serum</div><h3>Hydra Glow Serum</h3><p class="ping" data-i18n="prd_serum">Niacinamide + hyaluronic acid for brightening &amp; deep hydration.</p><div class="pmsrp">MSRP ≈ $18 · 30ml</div></div></div>
@@ -390,21 +389,21 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="oem_eyebrow">OEM &amp; Pricing</div>
       <h2 data-i18n="oem_title">The price advantage, in numbers</h2>
-      <p class="lead" data-i18n="oem_lead">In cosmetics OEM, finished-goods cost typically runs around 20% of retail price. SEOULIVA passes that efficiency on: products supplied at roughly 30% of MSRP, so the buyer keeps a ~70% gross margin while still pricing competitively on shelf.</p>
+      <p class="lead" data-i18n="oem_lead">OEM cost is ~20% of MSRP. SEOULIVA supplies at ~30% of MSRP, so the buyer keeps ~70%.</p>
     </div>
     <div class="split">
       <div class="chartbox">
         <h3 data-i18n="oem_ch_t">How every $1 of MSRP breaks down</h3>
-        <div class="cap" data-i18n="oem_ch_c">Illustrative structure at ~30% supply price. Actual costs vary by SKU, volume &amp; freight.</div>
+        <div class="cap" data-i18n="oem_ch_c">Illustrative structure at ~30% supply price.</div>
         <div class="chart-canvas-wrap" style="height:300px"><canvas id="chCost"></canvas></div>
       </div>
       <div>
         <h3 class="serif" style="font-size:1.4rem;margin-bottom:10px" data-i18n="oem_sub">What this means for the buyer</h3>
         <ul class="split" style="display:block">
-          <li data-i18n="oem_p1"><b>~70% gross margin headroom</b> — supply at ~30% of MSRP leaves room for warehouse discounting and wholesale resale.</li>
-          <li data-i18n="oem_p2"><b>OEM cost ≈ 20% of MSRP</b> — the manufacturing economics that make the offer sustainable.</li>
-          <li data-i18n="oem_p3"><b>Customisable</b> — formula, active concentration, fragrance, packaging and language labelling tailored for Kenya.</li>
-          <li data-i18n="oem_p4"><b>Scalable MOQs</b> — start lean with hero SKUs, expand the range as sell-through is proven.</li>
+          <li data-i18n="oem_p1"><b>~70% gross margin headroom</b> for warehouse discounting and resale.</li>
+          <li data-i18n="oem_p2"><b>OEM cost ≈ 20% of MSRP</b> — sustainable economics.</li>
+          <li data-i18n="oem_p3"><b>Customisable</b> formula, fragrance, packaging and labelling.</li>
+          <li data-i18n="oem_p4"><b>Scalable MOQs</b> — start lean, expand as sell-through is proven.</li>
         </ul>
       </div>
     </div>
@@ -429,7 +428,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
         </tbody>
       </table>
     </div>
-    <p class="note" data-i18n="oem_note">Figures are indicative for proposal purposes and exclude freight, duties, KEBS/PVoC certification and local taxes. Final pricing confirmed per SKU and order volume.</p>
+    <p class="note" data-i18n="oem_note">Figures are indicative and exclude freight, duties, KEBS/PVoC certification and local taxes.</p>
   </div>
 </section>
 
@@ -438,7 +437,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="inv_eyebrow">Investment &amp; Returns</div>
       <h2 data-i18n="inv_title">What you put in, what you get back</h2>
-      <p class="lead" data-i18n="inv_lead">A mid-size warehouse store can open from an estimated USD 80,000 all-in. On a conservative ramp, cumulative net profit overtakes the initial investment within roughly 20 months.</p>
+      <p class="lead" data-i18n="inv_lead">A mid-size store can open from ~USD 80,000 all-in, with payback in ~20 months.</p>
     </div>
     <div class="pricecards">
       <div class="pc"><div class="big">~$80K</div><div class="lbl" data-i18n="inv_k1">Estimated all-in initial investment (≈ KES 10.3M)</div></div>
@@ -448,12 +447,12 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="chart-2" style="margin-top:30px">
       <div class="chartbox">
         <h3 data-i18n="inv_ch1_t">Initial investment breakdown</h3>
-        <div class="cap" data-i18n="inv_ch1_c">Estimated all-in CAPEX, USD. Illustrative for a mid-size store.</div>
+        <div class="cap" data-i18n="inv_ch1_c">Estimated all-in CAPEX, USD.</div>
         <div class="chart-canvas-wrap"><canvas id="chCapex"></canvas></div>
       </div>
       <div class="chartbox">
         <h3 data-i18n="inv_ch2_t">Cumulative cash position</h3>
-        <div class="cap" data-i18n="inv_ch2_c">Cumulative net cash, USD. Crosses break-even during year 2.</div>
+        <div class="cap" data-i18n="inv_ch2_c">Cumulative net cash, USD.</div>
         <div class="chart-canvas-wrap"><canvas id="chCash"></canvas></div>
       </div>
     </div>
@@ -474,7 +473,7 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
         </tbody>
       </table>
     </div>
-    <p class="note" data-i18n="inv_note">All financial figures are illustrative estimates for discussion only, not a guarantee of returns. They assume a single mid-size Nairobi store and must be validated against local rent, payroll, logistics, duties and demand. USD↔KES at ≈129 (2025).</p>
+    <p class="note" data-i18n="inv_note">All financial figures are illustrative estimates for discussion only, not a guarantee. USD↔KES ≈ 129 (2025).</p>
   </div>
 </section>
 
@@ -483,17 +482,17 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="section-head">
       <div class="eyebrow" data-i18n="rm_eyebrow">The Plan</div>
       <h2 data-i18n="rm_title">From handshake to opening</h2>
-      <p class="lead" data-i18n="rm_lead">A phased path that limits risk: prove demand with a lean range, then scale the assortment and footprint.</p>
+      <p class="lead" data-i18n="rm_lead">A phased path that limits risk.</p>
     </div>
     <div class="timeline">
-      <div class="tstep"><div class="num">1</div><div class="ph" data-i18n="rm_ph1">Month 0–1</div><h3 data-i18n="rm_t1">Agree terms</h3><p data-i18n="rm_b1">Partnership &amp; supply agreement, target SKUs, location shortlist and budget sign-off.</p></div>
-      <div class="tstep"><div class="num">2</div><div class="ph" data-i18n="rm_ph2">Month 1–3</div><h3 data-i18n="rm_t2">Source &amp; certify</h3><p data-i18n="rm_b2">OEM production, KEBS/PVoC certification, labelling, first container &amp; store fit-out.</p></div>
-      <div class="tstep"><div class="num">3</div><div class="ph" data-i18n="rm_ph3">Month 3–4</div><h3 data-i18n="rm_t3">Launch Nairobi</h3><p data-i18n="rm_b3">Flagship opening, TikTok/Instagram launch campaign, staff training &amp; B2B onboarding.</p></div>
-      <div class="tstep"><div class="num">4</div><div class="ph" data-i18n="rm_ph4">Month 6–18</div><h3 data-i18n="rm_t4">Scale</h3><p data-i18n="rm_b4">Widen the range, add stores/wholesale accounts, and use Kenya as the East-Africa hub.</p></div>
+      <div class="tstep"><div class="num">1</div><div class="ph" data-i18n="rm_ph1">Month 0–1</div><h3 data-i18n="rm_t1">Agree terms</h3><p data-i18n="rm_b1">Partnership &amp; supply agreement, target SKUs, location, budget.</p></div>
+      <div class="tstep"><div class="num">2</div><div class="ph" data-i18n="rm_ph2">Month 1–3</div><h3 data-i18n="rm_t2">Source &amp; certify</h3><p data-i18n="rm_b2">OEM production, KEBS/PVoC certification, labelling, first container, fit-out.</p></div>
+      <div class="tstep"><div class="num">3</div><div class="ph" data-i18n="rm_ph3">Month 3–4</div><h3 data-i18n="rm_t3">Launch Nairobi</h3><p data-i18n="rm_b3">Flagship opening, TikTok/Instagram campaign, staff training, B2B onboarding.</p></div>
+      <div class="tstep"><div class="num">4</div><div class="ph" data-i18n="rm_ph4">Month 6–18</div><h3 data-i18n="rm_t4">Scale</h3><p data-i18n="rm_b4">Widen the range, add stores, use Kenya as the East-Africa hub.</p></div>
     </div>
     <div class="callout" style="margin-top:50px">
       <h2 data-i18n="cta_title">Let's build K-Beauty's home in Kenya.</h2>
-      <p data-i18n="cta_body">SEOULIVA is ready to localise, supply and support. The next step is a working session to confirm location, range and terms ahead of launch.</p>
+      <p data-i18n="cta_body">SEOULIVA is ready to localise, supply and support.</p>
       <div style="margin-top:22px"><a href="mailto:brooksservices.kim@gmail.com" class="btn btn-primary" data-i18n="cta_btn">Contact Brooks Global</a></div>
     </div>
   </div>
@@ -508,13 +507,13 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
         <p class="muted" data-i18n="ft_tag">Affordable Korean Beauty, built for Africa.</p>
       </div>
       <div>
-        <h4 style="color:#fff;margin-bottom:10px;font-family:'Pretendard Variable','Pretendard',sans-serif" data-i18n="ft_prop_h">Proposed by</h4>
+        <h4 style="color:#fff;margin-bottom:10px" data-i18n="ft_prop_h">Proposed by</h4>
         <p><b style="color:#fff">Brooks Global · CEO</b></p>
         <p class="muted" data-i18n="ft_prop_b">Distribution brand SEOULIVA — an independent K-Beauty retail &amp; OEM distribution venture.</p>
         <p style="margin-top:8px"><a href="mailto:brooksservices.kim@gmail.com">brooksservices.kim@gmail.com</a></p>
       </div>
       <div>
-        <h4 style="color:#fff;margin-bottom:10px;font-family:'Pretendard Variable','Pretendard',sans-serif" data-i18n="ft_ref_h">Contact</h4>
+        <h4 style="color:#fff;margin-bottom:10px" data-i18n="ft_ref_h">Contact</h4>
         <p class="muted" data-i18n="ft_ref_b">For partnership, pricing and launch discussions, please reach out directly.</p>
         <p class="muted"><a href="mailto:brooksservices.kim@gmail.com">brooksservices.kim@gmail.com</a></p>
       </div>
@@ -522,15 +521,11 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     <div class="sources">
       <strong data-i18n="src_h">Sources &amp; references</strong><br>
       Statista — Beauty &amp; Personal Care, Kenya: https://www.statista.com/outlook/cmo/beauty-personal-care/kenya ·
-      Statista — Cosmetics, Kenya: https://www.statista.com/outlook/cmo/beauty-personal-care/cosmetics/kenya ·
       BeautyMatter — "Why Kenya Is East Africa's Beauty Powerhouse": https://beautymatter.com/articles/why-kenya-is-east-africas-powerhouse ·
       Future Market Insights — K-Beauty Product Market: https://www.futuremarketinsights.com/reports/k-beauty-product-market ·
       Korea Times — "Korea becomes world's No. 2 cosmetics exporter": https://www.koreatimes.co.kr/business/20260522/korea-becomes-worlds-no-2-cosmetics-exporter-as-trade-surplus-tops-10-bil ·
       IBTimes — "South Korea Tops U.S. in Cosmetics Exports ($11.4B, 2025)": https://www.ibtimes.com/south-korea-tops-us-cosmetics-exports-record-114-billion-2025-3803255 ·
-      KED Global — "K-beauty exports… 205 nations": https://www.kedglobal.com/beauty-cosmetics/newsView/ked202510170006 ·
       Cosmetics &amp; Toiletries — "How K-Beauty Conquered 2025 Through TikTok": https://www.cosmeticsandtoiletries.com/research/consumers-market/news/22957413 ·
-      The Glow Pick — trending ingredients 2025–26: https://theglowpick.com/k-beauty-trends-2026/ ·
-      Oxford Academic, Skin Health &amp; Disease — sunscreen use in Africa: https://academic.oup.com/skinhd/advance-article/doi/10.1093/skinhd/vzag061/8671957 ·
       OEM cost reference — Crescent Seoul: https://www.crescentseoul.com/post/what-does-oem-and-odm-mean-in-cosmetics ·
       Country screening &amp; Kenya market notes: Brooks Global internal market research (May 2026).
     </div>
@@ -540,6 +535,14 @@ footer h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
     </div>
   </div>
 </footer>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
 
 <script>
 const I18N = {
@@ -579,6 +582,7 @@ const I18N = {
   cap_ext:"한눈에 들어오는 매장 정면 — 길거리나 쇼핑몰에서 바로 눈에 띕니다",cap_cnt:"상담하면서 결제하는 계산대",
   cap_int1:"종류별 코너: 기초·자외선 차단·마스크팩·색조",cap_int2:"상자 진열과 '도매 특가' 매대",
   cap_sig:"통일감 있는 매장 간판",cap_uni:"브랜드 직원 유니폼",cap_apr:"브랜드 앞치마",
+  con_hint:"이미지를 클릭하면 원본 크기로 크게 볼 수 있습니다.",
   con_c1_t:"두 가지를 합친 매장",con_c1_b:"매장에 직접 오는 손님을 위한 판매 공간과, 미용실·되파는 사장님을 위한 도매 코너를 함께 둡니다. 케냐 유통 현실에 가장 잘 맞는 방식입니다.",
   con_c2_t:"나이로비부터 시작",con_c2_b:"사람이 많이 다니는 나이로비에서 먼저 열고, 몸바사와 다른 지역으로 넓힙니다. 케냐를 동아프리카로 다시 수출하는 거점으로 씁니다.",
   con_c3_t:"맡기면 되는 협력 방식",con_c3_b:"브룩스 글로벌(Brooks Global)이 브랜드, 매장 꾸미기 용품, 제품, 운영 방법을 모두 준비합니다. 케냐 파트너는 현지를 잘 아는 강점으로 매장을 운영합니다.",
@@ -659,6 +663,7 @@ const I18N = {
   cap_ext:"Statement storefront — instantly recognisable on a high street or mall",cap_cnt:"Consultation-led counter & checkout",
   cap_int1:"Category zones: skincare, sun care, masks, makeup",cap_int2:"Crate merchandising & 'wholesale deals' value bins",
   cap_sig:"Consistent brand signage",cap_uni:"Branded staff uniform",cap_apr:"Branded service apron",
+  con_hint:"Click any image to view it at full size.",
   con_c1_t:"Hybrid model",con_c1_b:"A retail experience floor for walk-in consumers, plus a B2B wholesale hub for salons and resellers — the structure best fitted to Kenyan distribution.",
   con_c2_t:"Nairobi-first",con_c2_b:"Launch in a high-footfall Nairobi location, then expand to Mombasa and regional hubs and use Kenya as an East-Africa re-export base.",
   con_c3_t:"Turnkey partnership",con_c3_b:"Brooks Global supplies brand, fit-out kit, OEM products and operating playbook; the Kenyan partner runs the store with on-the-ground knowledge.",
@@ -688,7 +693,7 @@ const I18N = {
   inv_ch2_t:"Cumulative cash position",inv_ch2_c:"Cumulative net cash, USD. Crosses break-even during year 2.",
   inv_tbl_t:"3-year illustrative P&L",
   th_item:"Item (USD)",row_rev:"Revenue",row_cogs:"Cost of goods",row_gross:"Gross profit",row_opex:"Operating costs",row_net:"Net profit",row_margin:"Net margin",
-  inv_note:"All financial figures are illustrative estimates for discussion only, not a guarantee of returns. They assume a single mid-size Nairobi store and must be validated against local rent, payroll, logistics, duties and demand. USD↔KES at ≈129 (2025).",
+  inv_note:"All financial figures are illustrative estimates for discussion only, not a guarantee of returns. USD↔KES at ≈129 (2025).",
   rm_eyebrow:"The Plan",rm_title:"From handshake to opening",
   rm_lead:"A phased path that limits risk: prove demand with a lean range, then scale the assortment and footprint.",
   rm_ph1:"Month 0–1",rm_t1:"Agree terms",rm_b1:"Partnership & supply agreement, target SKUs, location shortlist and budget sign-off.",
@@ -711,10 +716,10 @@ const I18N = {
   hero_btn1:"Ona fursa",hero_btn2:"Bei za OEM",hero_by:"Imependekezwa na",
   hs1:"Soko la urembo na utunzaji binafsi Kenya (2024)",hs2:"Mauzo ya nje ya vipodozi vya Korea 2025 — nafasi ya 2 duniani",hs3:"Bei ya usambazaji ya OEM dhidi ya bei ya rejareja (MSRP)",hs4:"Makadirio ya muda wa kurudisha uwekezaji wa awali",
   sum_eyebrow:"Muhtasari Mkuu",sum_title:"Mfumo wa rejareja uliothibitishwa, soko linalokua, na wakati muafaka.",
-  sum_lead:"K-Beauty ni kundi la urembo linalokua kwa kasi zaidi duniani, na Kenya ni kitovu cha urembo Afrika Mashariki. SEOULIVA inaunganisha haya mawili katika duka la mtindo wa ghala — mauzo mengi, bei nafuu, na fomyula halisi za Kikorea zilizoundwa kwa ngozi yenye melanini na hali ya hewa ya joto.",
-  sum_c1_t:"Wakati wa soko",sum_c1_b:"Soko la urembo la Kenya linatarajiwa kufikia dola bilioni 3.1 ifikapo 2029, huku ufahamu wa K-Beauty Nairobi ukiwa tayari umethibitishwa na mahitaji yanayochochewa na TikTok pamoja na maduka maalum ya ngozi ya Kikorea.",
+  sum_lead:"K-Beauty ni kundi la urembo linalokua kwa kasi zaidi duniani, na Kenya ni kitovu cha urembo Afrika Mashariki. SEOULIVA inaunganisha haya mawili katika duka la mtindo wa ghala — mauzo mengi, bei nafuu, na fomyula halisi za Kikorea.",
+  sum_c1_t:"Wakati wa soko",sum_c1_b:"Soko la urembo la Kenya linatarajiwa kufikia dola bilioni 3.1 ifikapo 2029, huku ufahamu wa K-Beauty Nairobi ukiwa tayari umethibitishwa na mahitaji yanayochochewa na TikTok.",
   sum_c2_t:"Faida ya bei",sum_c2_b:"Kwa gharama ya OEM ya takriban 20% ya MSRP, SEOULIVA inaweza kusambaza bidhaa kwa takriban 30% ya MSRP — ikimwachia mnunuzi faida kubwa huku bei za rafu zikibaki nafuu.",
-  sum_c3_t:"Imeundwa kwa ngozi",sum_c3_b:"Fomyula zinalenga mahitaji halisi ya watumiaji wa Kenya: madoa ya ngozi, kinga ya jua bila kuacha weupe, unyevu na usawa wa rangi — kwa kutumia viambato vya K-Beauty maarufu duniani.",
+  sum_c3_t:"Imeundwa kwa ngozi",sum_c3_b:"Fomyula zinalenga mahitaji halisi ya watumiaji wa Kenya: madoa ya ngozi, kinga ya jua bila kuacha weupe, unyevu na usawa wa rangi.",
   mkt_eyebrow:"Soko",mkt_title:"Mikondo miwili inayoenda upande mmoja",
   mkt_lead:"Matumizi ya urembo ya ndani ya Kenya na injini ya mauzo ya nje ya vipodozi ya Korea vyote vinakua. SEOULIVA ipo pale hasa zinapokutana.",
   mkt_s1:"Urembo na utunzaji binafsi Kenya, 2024",mkt_s2:"Makadirio ya soko la Kenya ifikapo 2029",mkt_s3:"Nchi zinazoagiza vipodozi vya Korea (2025)",mkt_s4:"Sehemu ya Mashariki ya Kati na Afrika katika K-Beauty duniani (2025)",
@@ -723,60 +728,61 @@ const I18N = {
   ch3_t:"Mauzo ya nje ya vipodozi vya Korea yavunja rekodi",ch3_c:"Mauzo ya nje kwa mwaka, dola bilioni. 2025 = muuzaji wa 2 duniani. Chanzo: Korea Customs Service / Korea Times.",
   ch4_t:"Nafasi ya Kenya kwa kuingia soko",ch4_c:"Alama za tathmini za Brooks Global Afrika (juu ya 25). Kenya ni nambari 1 kati ya masoko 12.",
   why_eyebrow:"Kwa Nini Kenya, Kwa Nini Sasa",why_title:"Mahitaji tayari yapo mtaani",
-  why_lead:"K-Beauty si tena bidhaa adimu inayoagizwa Nairobi. Maduka maalum ya ngozi ya Kikorea yanafanya kazi katika maduka makubwa kadhaa ya Nairobi, yakichochewa na TikTok — ushahidi kuwa mteja yuko tayari kwa duka la ghala lenye mpangilio na bidhaa kamili.",
+  why_lead:"K-Beauty si tena bidhaa adimu inayoagizwa Nairobi. Maduka maalum ya ngozi ya Kikorea yanafanya kazi katika maduka makubwa kadhaa ya Nairobi, yakichochewa na TikTok.",
   why_sub1:"Vichocheo vya ukuaji",
-  why_d1:"<b>Idadi ya vijana na ukuaji wa miji</b> — wengi walio chini ya miaka 25 na tabaka la kati la mijini linalokua vinaongeza matumizi ya utunzaji binafsi.",
-  why_d2:"<b>Mvuto wa mitandao ya kijamii</b> — sauti ya K-Beauty kwenye TikTok karibu iliongezeka maradufu (18%→34%) ndani ya mwaka; watumiaji wa Nairobi wanafuata mitindo ile ile.",
-  why_d3:"<b>Upendeleo wa asili na utendaji</b> — wanunuzi wa Kenya wanazidi kuchagua ngozi ya asili inayoongozwa na viambato, nguvu kuu ya K-Beauty.",
-  why_d4:"<b>Pengo la njia za usambazaji</b> — uwepo wa urembo katika maduka makubwa bado uko chini; mifumo ya jumla, maalum na ghala inafaa soko la sasa.",
+  why_d1:"<b>Idadi ya vijana na ukuaji wa miji</b> — vinaongeza matumizi ya utunzaji binafsi.",
+  why_d2:"<b>Mvuto wa mitandao ya kijamii</b> — sauti ya K-Beauty kwenye TikTok karibu iliongezeka maradufu (18%→34%) ndani ya mwaka.",
+  why_d3:"<b>Upendeleo wa asili na utendaji</b> — nguvu kuu ya K-Beauty.",
+  why_d4:"<b>Pengo la njia za usambazaji</b> — mifumo ya jumla na ghala inafaa soko la sasa.",
   why_sub2:"Mahitaji ya ngozi tunayoyatengenezea",
-  why_chart_c:"Wasiwasi wa kipaumbele wa ngozi miongoni mwa watumiaji wa Afrika (kielelezo cha mfano, kwa msingi wa tafiti za ngozi na utafiti).",
+  why_chart_c:"Wasiwasi wa kipaumbele wa ngozi miongoni mwa watumiaji wa Afrika (kielelezo cha mfano).",
   ing1_t:"Kinga ya jua, bila weupe",ing1_b:"Kinga ya jua SPF50+ PA++++ iliyoundwa kufyonzwa vizuri kwenye ngozi nyeusi — lalamiko la kwanza dhidi ya vinga vya jua vya kimataifa barani Afrika.",
   ing2_t:"Kung'arisha na usawa wa rangi",ing2_b:"Niacinamide, vitamini C, kojic na glycolic acid hulenga madoa baada ya uvimbe (PIH) — tatizo la kawaida zaidi kwenye ngozi yenye melanini.",
-  ing3_t:"Viambato maarufu duniani",ing3_b:"Cica (centella), heartleaf, ute wa konokono, ceramides, PDRN na hyaluronic acid — viambato vile vile vinavyoongoza K-Beauty duniani, vimeundwa na maabara za Korea.",
+  ing3_t:"Viambato maarufu duniani",ing3_b:"Cica (centella), heartleaf, ute wa konokono, ceramides, PDRN na hyaluronic acid — vimeundwa na maabara za Korea.",
   con_eyebrow:"Dhana ya Duka",con_title:"Ghala la urembo wa Kikorea",
   con_lead:"Lenye ujasiri, angavu na limejengwa kwa mauzo mengi. SEOULIVA inachanganya eneo la rejareja la uzoefu na ofa za jumla zilizopangwa kwa makasha — kwa mfano wa mtindo wa rejareja wa ghala wa urembo wa Kikorea uliothibitishwa.",
   cap_ext:"Sura ya duka inayovutia — inatambulika papo hapo barabarani au kwenye duka kuu",cap_cnt:"Kaunta na malipo yenye ushauri",
   cap_int1:"Maeneo ya makundi: ngozi, kinga ya jua, vinyago, urembo",cap_int2:"Upangaji wa makasha na mapipa ya 'ofa za jumla'",
   cap_sig:"Alama thabiti za chapa",cap_uni:"Sare ya wafanyakazi yenye chapa",cap_apr:"Aproni ya huduma yenye chapa",
+  con_hint:"Bofya picha yoyote kuiona kwa ukubwa kamili.",
   con_c1_t:"Mfumo mseto",con_c1_b:"Sakafu ya uzoefu wa rejareja kwa wateja wa kuingia, pamoja na kitovu cha jumla cha B2B kwa saluni na wauzaji — muundo unaofaa zaidi usambazaji wa Kenya.",
   con_c2_t:"Nairobi kwanza",con_c2_b:"Anzisha katika eneo lenye watu wengi Nairobi, kisha panua hadi Mombasa na vitovu vya mikoa na tumia Kenya kama kituo cha kuuza tena Afrika Mashariki.",
   con_c3_t:"Ushirikiano kamili (turnkey)",con_c3_b:"Brooks Global inasambaza chapa, kifaa cha mapambo, bidhaa za OEM na mwongozo wa uendeshaji; mshirika wa Kenya anaendesha duka kwa ujuzi wa ndani.",
   prd_eyebrow:"Mstari wa Bidhaa",prd_title:"Mkusanyiko maalum wa uzinduzi",
-  prd_lead:"Bidhaa kuu sita zinashughulikia ratiba ya kila siku ya K-Beauty. Kila moja ni bidhaa ya OEM kutoka kwa watengenezaji wa Korea, inayoweza kubadilishwa kwa fomyula, harufu na kifungashio — na kupanuliwa duka likikua. MSRP iliyoonyeshwa ni bei ya rafu ya makadirio.",
+  prd_lead:"Bidhaa kuu sita zinashughulikia ratiba ya kila siku ya K-Beauty. Kila moja ni bidhaa ya OEM kutoka Korea, inayoweza kubadilishwa. MSRP iliyoonyeshwa ni bei ya rafu ya makadirio.",
   prd_serum:"Niacinamide + hyaluronic acid kwa kung'arisha na unyevu wa kina.",
   prd_cream:"Krimu ya kurekebisha kizuizi cha ngozi yenye ceramide kwa hali ya hewa ya joto.",
   prd_sun:"SPF50+ PA++++, bila kuacha weupe kwenye ngozi nyeusi.",
   prd_toner:"Toner nyepesi yenye unyevu ya kuandaa na kusawazisha ngozi.",
   prd_pad:"Pedi za centella (cica) za kutuliza, kupoza na kuondoa seli za ngozi taratibu.",
-  prd_mask:"Bidhaa kuu ya mauzo mengi — ratiba nafuu ya kila siku na kiongeza kikapu.",
+  prd_mask:"Bidhaa kuu ya mauzo mengi — ratiba nafuu ya kila siku.",
   oem_eyebrow:"OEM na Bei",oem_title:"Faida ya bei, kwa namba",
-  oem_lead:"Katika OEM ya vipodozi, gharama ya bidhaa kamili kwa kawaida ni takriban 20% ya bei ya rejareja. SEOULIVA inapitisha ufanisi huo: bidhaa zinasambazwa kwa takriban 30% ya MSRP, hivyo mnunuzi anabaki na faida ya jumla ya ~70% huku bado akiweka bei ya ushindani kwenye rafu.",
-  oem_ch_t:"Jinsi kila dola 1 ya MSRP inavyogawanyika",oem_ch_c:"Muundo wa mfano kwa bei ya usambazaji ~30%. Gharama halisi hutofautiana kwa bidhaa, kiasi na usafirishaji.",
+  oem_lead:"Katika OEM ya vipodozi, gharama ya bidhaa kamili kwa kawaida ni takriban 20% ya bei ya rejareja. SEOULIVA inapitisha ufanisi huo: bidhaa zinasambazwa kwa takriban 30% ya MSRP, hivyo mnunuzi anabaki na faida ya jumla ya ~70%.",
+  oem_ch_t:"Jinsi kila dola 1 ya MSRP inavyogawanyika",oem_ch_c:"Muundo wa mfano kwa bei ya usambazaji ~30%.",
   oem_sub:"Maana yake kwa mnunuzi",
-  oem_p1:"<b>Nafasi ya faida ya jumla ~70%</b> — usambazaji kwa ~30% ya MSRP huacha nafasi ya punguzo la ghala na kuuza tena kwa jumla.",
+  oem_p1:"<b>Nafasi ya faida ya jumla ~70%</b> — usambazaji kwa ~30% ya MSRP.",
   oem_p2:"<b>Gharama ya OEM ≈ 20% ya MSRP</b> — uchumi wa utengenezaji unaofanya ofa kuwa endelevu.",
-  oem_p3:"<b>Inayoweza kubinafsishwa</b> — fomyula, kiwango cha viambato, harufu, kifungashio na lugha ya lebo vimeundwa kwa Kenya.",
-  oem_p4:"<b>MOQ zinazoweza kupanuka</b> — anza kidogo na bidhaa kuu, panua mstari mauzo yakithibitishwa.",
+  oem_p3:"<b>Inayoweza kubinafsishwa</b> — fomyula, harufu, kifungashio na lebo kwa Kenya.",
+  oem_p4:"<b>MOQ zinazoweza kupanuka</b> — anza kidogo, panua mauzo yakithibitishwa.",
   oem_tbl_t:"Bei za usambazaji za OEM za makadirio",
   th_prod:"Bidhaa",th_msrp:"MSRP (USD)",th_supply:"Bei ya usambazaji ≈30%",th_cogs:"Gharama ya OEM ≈20%",th_margin:"Faida ya mnunuzi / kipande",th_marginp:"Asilimia ya faida",
-  oem_note:"Namba ni za makadirio kwa madhumuni ya pendekezo na hazijumuishi usafirishaji, ushuru, uthibitisho wa KEBS/PVoC na kodi za ndani. Bei ya mwisho itathibitishwa kwa kila bidhaa na kiasi cha oda.",
+  oem_note:"Namba ni za makadirio na hazijumuishi usafirishaji, ushuru, uthibitisho wa KEBS/PVoC na kodi za ndani.",
   inv_eyebrow:"Uwekezaji na Faida",inv_title:"Unachoweka, unachopata",
-  inv_lead:"Duka la ghala la ukubwa wa kati linaweza kufunguliwa kuanzia makadirio ya USD 80,000 jumla. Kwa ukuaji wa tahadhari, faida halisi ya jumla inazidi uwekezaji wa awali ndani ya takriban miezi 20.",
+  inv_lead:"Duka la ghala la ukubwa wa kati linaweza kufunguliwa kuanzia makadirio ya USD 80,000 jumla, na kurudisha fedha ndani ya takriban miezi 20.",
   inv_k1:"Makadirio ya uwekezaji wa awali jumla (≈ KES milioni 10.3)",inv_k2:"Makadirio ya muda wa kurudisha",inv_k3:"Faida halisi ya jumla ifikapo mwaka 3 (≈ mara 2.5 ya uwekezaji)",
-  inv_ch1_t:"Mgawanyo wa uwekezaji wa awali",inv_ch1_c:"Makadirio ya CAPEX jumla, USD. Mfano kwa duka la ukubwa wa kati.",
-  inv_ch2_t:"Hali ya fedha ya jumla",inv_ch2_c:"Fedha halisi ya jumla, USD. Inavuka kiwango cha kufikia usawa katika mwaka wa 2.",
+  inv_ch1_t:"Mgawanyo wa uwekezaji wa awali",inv_ch1_c:"Makadirio ya CAPEX jumla, USD.",
+  inv_ch2_t:"Hali ya fedha ya jumla",inv_ch2_c:"Fedha halisi ya jumla, USD.",
   inv_tbl_t:"Faida na hasara ya mfano ya miaka 3",
   th_item:"Kipengele (USD)",row_rev:"Mapato",row_cogs:"Gharama ya bidhaa",row_gross:"Faida ya jumla",row_opex:"Gharama za uendeshaji",row_net:"Faida halisi",row_margin:"Asilimia ya faida halisi",
-  inv_note:"Namba zote za kifedha ni makadirio ya mfano kwa majadiliano pekee, si dhamana ya faida. Zinadhania duka moja la ukubwa wa kati Nairobi na lazima zithibitishwe dhidi ya kodi ya pango, mishahara, usafirishaji, ushuru na mahitaji ya ndani. USD↔KES kwa ≈129 (2025).",
+  inv_note:"Namba zote za kifedha ni makadirio ya mfano kwa majadiliano pekee, si dhamana ya faida. USD↔KES kwa ≈129 (2025).",
   rm_eyebrow:"Mpango",rm_title:"Kutoka makubaliano hadi ufunguzi",
-  rm_lead:"Njia ya hatua kwa hatua inayopunguza hatari: thibitisha mahitaji kwa mstari mdogo, kisha panua mkusanyiko na maeneo.",
-  rm_ph1:"Mwezi 0–1",rm_t1:"Kubaliana masharti",rm_b1:"Mkataba wa ushirikiano na usambazaji, bidhaa lengwa, orodha ya maeneo na idhini ya bajeti.",
-  rm_ph2:"Mwezi 1–3",rm_t2:"Tafuta na thibitisha",rm_b2:"Uzalishaji wa OEM, uthibitisho wa KEBS/PVoC, uwekaji lebo, kontena la kwanza na mapambo ya duka.",
-  rm_ph3:"Mwezi 3–4",rm_t3:"Zindua Nairobi",rm_b3:"Ufunguzi wa duka kuu, kampeni ya uzinduzi ya TikTok/Instagram, mafunzo ya wafanyakazi na uingizaji wa B2B.",
-  rm_ph4:"Mwezi 6–18",rm_t4:"Panua",rm_b4:"Ongeza mkusanyiko, ongeza maduka/wateja wa jumla, na tumia Kenya kama kitovu cha Afrika Mashariki.",
+  rm_lead:"Njia ya hatua kwa hatua inayopunguza hatari.",
+  rm_ph1:"Mwezi 0–1",rm_t1:"Kubaliana masharti",rm_b1:"Mkataba wa ushirikiano na usambazaji, bidhaa lengwa, eneo na bajeti.",
+  rm_ph2:"Mwezi 1–3",rm_t2:"Tafuta na thibitisha",rm_b2:"Uzalishaji wa OEM, uthibitisho wa KEBS/PVoC, lebo, kontena la kwanza na mapambo.",
+  rm_ph3:"Mwezi 3–4",rm_t3:"Zindua Nairobi",rm_b3:"Ufunguzi wa duka kuu, kampeni ya TikTok/Instagram, mafunzo, B2B.",
+  rm_ph4:"Mwezi 6–18",rm_t4:"Panua",rm_b4:"Ongeza mkusanyiko na maduka, tumia Kenya kama kitovu cha Afrika Mashariki.",
   cta_title:"Tujenge nyumba ya K-Beauty nchini Kenya.",
-  cta_body:"SEOULIVA iko tayari kuweka ndani, kusambaza na kusaidia. Hatua inayofuata ni kikao cha kazi kuthibitisha eneo, mkusanyiko na masharti kabla ya uzinduzi.",
+  cta_body:"SEOULIVA iko tayari kuweka ndani, kusambaza na kusaidia.",
   cta_btn:"Wasiliana na Brooks Global",
   ft_badge:"PENDEKEZO",ft_tag:"Urembo wa Kikorea nafuu, umejengwa kwa Afrika.",
   ft_prop_h:"Imependekezwa na",ft_prop_b:"Chapa ya usambazaji SEOULIVA — biashara huru ya rejareja na usambazaji wa OEM ya K-Beauty.",
@@ -823,7 +829,6 @@ const PINK="#E6396E",PINKD="#C81E5B",GREEN="#1C7A4D",GOLD="#D8A24A",GREY="#E7DCE
 Chart.defaults.font.family="Pretendard Variable, Pretendard, sans-serif";
 Chart.defaults.color="#6E6670";
 let charts={};
-
 function baseOpts(legend,max){
   return {responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:legend,position:"bottom",labels:{boxWidth:12,padding:12}}},
@@ -881,7 +886,40 @@ function updateCharts(lang){
   charts.cash.data.labels=CL[lang].cashX; charts.cash.data.datasets[0].label=CL[lang].cash;
   Object.values(charts).forEach(c=>c.update());
 }
-window.addEventListener("DOMContentLoaded",()=>{makeCharts();applyLang("ko");});
+
+/* 매장 이미지 라이트박스(클릭하면 원본 크게 보기) */
+function initLightbox(){
+  const figs=[...document.querySelectorAll(".gallery figure")];
+  const lb=document.getElementById("lightbox");
+  const lbImg=document.getElementById("lbImg");
+  const lbCap=document.getElementById("lbCap");
+  let idx=0;
+  function show(i){
+    idx=(i+figs.length)%figs.length;
+    const fig=figs[idx];
+    const img=fig.querySelector("img");
+    const cap=fig.querySelector("figcaption");
+    lbImg.src=img.getAttribute("src");
+    lbImg.alt=img.getAttribute("alt")||"";
+    lbCap.textContent=cap?cap.textContent:"";
+  }
+  function open(i){show(i);lb.classList.add("open");document.body.style.overflow="hidden";}
+  function close(){lb.classList.remove("open");lbImg.src="";document.body.style.overflow="";}
+  figs.forEach((f,i)=>f.addEventListener("click",()=>open(i)));
+  document.getElementById("lbClose").addEventListener("click",close);
+  document.getElementById("lbPrev").addEventListener("click",e=>{e.stopPropagation();show(idx-1);});
+  document.getElementById("lbNext").addEventListener("click",e=>{e.stopPropagation();show(idx+1);});
+  lb.addEventListener("click",e=>{if(e.target===lb)close();});
+  lbImg.addEventListener("click",e=>e.stopPropagation());
+  document.addEventListener("keydown",e=>{
+    if(!lb.classList.contains("open"))return;
+    if(e.key==="Escape")close();
+    else if(e.key==="ArrowLeft")show(idx-1);
+    else if(e.key==="ArrowRight")show(idx+1);
+  });
+}
+
+window.addEventListener("DOMContentLoaded",()=>{makeCharts();applyLang("ko");initLightbox();});
 </script>
 </body>
 </html>
